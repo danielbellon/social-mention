@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: socialMention
+r2dbc:
+  datasources:
+    default:
+      url: r2dbc:postgresql://localhost:5432/postgres
+      username: postgres
+      password: ''

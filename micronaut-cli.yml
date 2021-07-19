@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.appgate
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, cache-caffeine, gradle, http-client, java, java-application, junit, logback, lombok, netty-server, postgres, r2dbc, readme, shade, testcontainers, yaml]
