@@ -5,9 +5,11 @@ import com.appgate.social.mentions.domain.model.RiskScore;
 import com.appgate.social.mentions.domain.model.SocialNetwork;
 import com.appgate.social.mentions.domain.service.adapter.RiskScoreAdapter;
 import com.appgate.social.mentions.domain.service.analyzer.TweeterAnalyzer;
-import com.appgate.social.mentions.repository.TweetsRepository;
+import com.appgate.social.mentions.repository.TweetsAnalysisRepository;
+import jdk.jfr.Name;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import static com.appgate.social.mentions.domain.model.SocialNetwork.TWEETER;
@@ -15,15 +17,15 @@ import static com.appgate.social.mentions.domain.model.SocialNetwork.TWEETER;
 @Singleton
 public class TweeterStrategy implements SocialMentionAnalysisStrategy {
 
-	private final TweetsRepository repository;
+	private final TweetsAnalysisRepository repository;
 	private final TweeterAnalyzer analyzer;
 	private final RiskScoreAdapter adapter;
 
 	@Inject
 	public TweeterStrategy(
-			final TweetsRepository repository,
+			final TweetsAnalysisRepository repository,
 			final TweeterAnalyzer analyzer,
-			final RiskScoreAdapter adapter) {
+			@Named("tweeter") final RiskScoreAdapter adapter) {
 
 		this.repository = repository;
 		this.analyzer = analyzer;
@@ -31,7 +33,7 @@ public class TweeterStrategy implements SocialMentionAnalysisStrategy {
 	}
 
 	@Override
-	public SocialNetwork getStrategyName() {
+	public SocialNetwork name() {
 
 		return TWEETER;
 	}

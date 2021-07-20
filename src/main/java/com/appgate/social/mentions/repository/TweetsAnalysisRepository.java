@@ -1,6 +1,6 @@
 package com.appgate.social.mentions.repository;
 
-public interface TweetsRepository {
+public interface TweetsAnalysisRepository {
 
 	void save(Double score, String message, String url, String account);
 }

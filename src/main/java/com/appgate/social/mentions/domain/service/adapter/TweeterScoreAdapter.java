@@ -2,6 +2,9 @@ package com.appgate.social.mentions.domain.service.adapter;
 
 import com.appgate.social.mentions.domain.model.RiskScore;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class TweeterScoreAdapter implements RiskScoreAdapter {
 
 	@Override public RiskScore adapt(double score) {

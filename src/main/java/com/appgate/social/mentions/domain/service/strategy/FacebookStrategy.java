@@ -5,27 +5,27 @@ import com.appgate.social.mentions.domain.model.RiskScore;
 import com.appgate.social.mentions.domain.model.SocialNetwork;
 import com.appgate.social.mentions.domain.service.adapter.RiskScoreAdapter;
 import com.appgate.social.mentions.domain.service.analyzer.FacebookAnalyzer;
-import com.appgate.social.mentions.repository.FacebookPostsRepository;
+import com.appgate.social.mentions.repository.FacebookAnalysisRepository;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Singleton;
 import java.util.Optional;
 
-import static com.appgate.social.mentions.domain.model.RiskScore.LOW_RISK;
 import static com.appgate.social.mentions.domain.model.SocialNetwork.FACEBOOK;
 
 @Singleton
 public class FacebookStrategy implements SocialMentionAnalysisStrategy {
 
 	private final FacebookAnalyzer analyzer;
-	private final FacebookPostsRepository repository;
+	private final FacebookAnalysisRepository repository;
 	private final RiskScoreAdapter adapter;
 
 	@Inject
 	public FacebookStrategy(
 			final FacebookAnalyzer analyzer,
-			final FacebookPostsRepository repository,
-			final RiskScoreAdapter adapter) {
+			final FacebookAnalysisRepository repository,
+			@Named("facebook") final RiskScoreAdapter adapter) {
 
 		this.analyzer = analyzer;
 		this.repository = repository;
@@ -33,7 +33,7 @@ public class FacebookStrategy implements SocialMentionAnalysisStrategy {
 	}
 
 	@Override
-	public SocialNetwork getStrategyName() {
+	public SocialNetwork name() {
 
 		return FACEBOOK;
 	}

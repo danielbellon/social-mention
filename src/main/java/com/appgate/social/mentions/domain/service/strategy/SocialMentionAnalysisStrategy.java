@@ -6,7 +6,7 @@ import com.appgate.social.mentions.domain.model.SocialNetwork;
 
 public interface SocialMentionAnalysisStrategy {
 
-	SocialNetwork getStrategyName();
+	SocialNetwork name();
 
 	RiskScore analyze(SocialMention socialMention);
 }
