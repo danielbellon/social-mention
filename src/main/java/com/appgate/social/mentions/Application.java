@@ -1,4 +1,4 @@
-package com.appgate;
+package com.appgate.social.mentions;
 
 import io.micronaut.runtime.Micronaut;
 

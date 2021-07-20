@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: socialMention
+    name: social-mentions
 r2dbc:
   datasources:
     default:
