@@ -50,4 +50,5 @@ in consequence, if the risk level calculation changes, the validations will fail
 - Enhance abstraction, for instance, create enums in order to represent the risk level in Strings 
 - Add logs
 - Don't hardcode the database connection params, instead, put them in a configuration file
+- Strategy pattern implementation in order to decide the analyzer to be used for the incoming social mention 
 
