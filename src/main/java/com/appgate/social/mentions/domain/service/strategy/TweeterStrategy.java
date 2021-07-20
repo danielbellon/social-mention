@@ -6,7 +6,6 @@ import com.appgate.social.mentions.domain.model.SocialNetwork;
 import com.appgate.social.mentions.domain.service.adapter.RiskScoreAdapter;
 import com.appgate.social.mentions.domain.service.analyzer.TweeterAnalyzer;
 import com.appgate.social.mentions.repository.TweetsAnalysisRepository;
-import jdk.jfr.Name;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -25,7 +24,7 @@ public class TweeterStrategy implements SocialMentionAnalysisStrategy {
 	public TweeterStrategy(
 			final TweetsAnalysisRepository repository,
 			final TweeterAnalyzer analyzer,
-			@Named("tweeter") final RiskScoreAdapter adapter) {
+			@Named("TweeterScoreAdapter") final RiskScoreAdapter adapter) {
 
 		this.repository = repository;
 		this.analyzer = analyzer;

@@ -25,7 +25,7 @@ public class FacebookStrategy implements SocialMentionAnalysisStrategy {
 	public FacebookStrategy(
 			final FacebookAnalyzer analyzer,
 			final FacebookAnalysisRepository repository,
-			@Named("facebook") final RiskScoreAdapter adapter) {
+			@Named("FacebookScoreAdapter") final RiskScoreAdapter adapter) {
 
 		this.analyzer = analyzer;
 		this.repository = repository;
