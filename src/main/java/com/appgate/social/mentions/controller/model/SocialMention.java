@@ -2,12 +2,14 @@ package com.appgate.social.mentions.controller.model;
 
 import com.appgate.social.mentions.domain.model.SocialNetwork;
 import lombok.Data;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
 
 @Data
+@ToString
 public class SocialMention {
 
 	private String message;

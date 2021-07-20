@@ -6,6 +6,7 @@ import com.appgate.social.mentions.domain.model.SocialNetwork;
 import com.appgate.social.mentions.domain.service.adapter.RiskScoreAdapter;
 import com.appgate.social.mentions.domain.service.analyzer.TweeterAnalyzer;
 import com.appgate.social.mentions.repository.TweetsAnalysisRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,6 +14,7 @@ import javax.inject.Singleton;
 
 import static com.appgate.social.mentions.domain.model.SocialNetwork.TWEETER;
 
+@Slf4j
 @Singleton
 public class TweeterStrategy implements SocialMentionAnalysisStrategy {
 
@@ -39,6 +41,8 @@ public class TweeterStrategy implements SocialMentionAnalysisStrategy {
 
 	@Override
 	public RiskScore analyze(SocialMention socialMention) {
+
+		log.debug("Using Tweeter Strategy to analyze incoming social mention: [{}]", socialMention);
 
 		var score = analyzer.analyzeTweet(
 				socialMention.getMessage(),

@@ -6,6 +6,7 @@ import com.appgate.social.mentions.domain.model.SocialNetwork;
 import com.appgate.social.mentions.domain.service.adapter.RiskScoreAdapter;
 import com.appgate.social.mentions.domain.service.analyzer.FacebookAnalyzer;
 import com.appgate.social.mentions.repository.FacebookAnalysisRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 import static com.appgate.social.mentions.domain.model.SocialNetwork.FACEBOOK;
 
+@Slf4j
 @Singleton
 public class FacebookStrategy implements SocialMentionAnalysisStrategy {
 
@@ -40,6 +42,8 @@ public class FacebookStrategy implements SocialMentionAnalysisStrategy {
 
 	@Override
 	public RiskScore analyze(SocialMention socialMention) {
+
+		log.debug("Using Facebook Strategy to analyze incoming social mention. [{}]", socialMention);
 
 		var score = getCommentsScore(socialMention);
 

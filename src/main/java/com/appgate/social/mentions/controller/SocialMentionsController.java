@@ -7,9 +7,11 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Produces;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 
+@Slf4j
 @Controller
 public class SocialMentionsController {
 
@@ -25,6 +27,7 @@ public class SocialMentionsController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String analyze(@Body SocialMention socialMention) {
 
+		log.info("Receiving social mention analysis request: {}", socialMention);
 		return useCase.execute(socialMention).name();
 	}
  }
