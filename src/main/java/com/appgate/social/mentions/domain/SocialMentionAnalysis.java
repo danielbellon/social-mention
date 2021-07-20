@@ -1,4 +1,4 @@
-package com.appgate.social.mentions.core;
+package com.appgate.social.mentions.domain;
 
 import lombok.Builder;
 import lombok.Data;

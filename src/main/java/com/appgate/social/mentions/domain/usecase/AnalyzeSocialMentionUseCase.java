@@ -1,10 +1,9 @@
-package com.appgate.social.mentions.core;
+package com.appgate.social.mentions.domain.usecase;
 
 /**
  * @author <a href="mailto:daniel.bellon@payulatam.com"> Daniel Bellón </a>
  * @since
  */
-public enum SocialNetwork {
+public class AnalyzeSocialMentionUseCase {
 
-	FACEBOOK, TWEETER, UNKNOWN
 }

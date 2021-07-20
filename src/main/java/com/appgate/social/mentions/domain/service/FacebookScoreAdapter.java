@@ -1,9 +1,7 @@
-package com.appgate.social.mentions.core;
+package com.appgate.social.mentions.domain.service;
 
-/**
- * @author <a href="mailto:daniel.bellon@payulatam.com"> Daniel Bellón </a>
- * @since
- */
+import com.appgate.social.mentions.domain.model.RiskScore;
+
 public class FacebookScoreAdapter implements RiskScoreAdapter {
 
 	@Override

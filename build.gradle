@@ -27,8 +27,11 @@ dependencies {
     implementation "io.micronaut.cache:micronaut-cache-caffeine"
     implementation "io.micronaut.r2dbc:micronaut-r2dbc-core"
     implementation "javax.annotation:javax.annotation-api"
+    implementation 'org.apache.commons:commons-lang3:3.6'
+    implementation 'org.apache.commons:commons-text:1.6'
     compileOnly "io.micronaut:micronaut-inject:1.0.0"
     compileOnly "org.projectlombok:lombok"
+    compileOnly 'org.apache.commons:commons-configuration2:2.7'
     runtimeOnly "ch.qos.logback:logback-classic"
     runtimeOnly "io.r2dbc:r2dbc-postgresql"
     runtimeOnly "org.postgresql:postgresql"

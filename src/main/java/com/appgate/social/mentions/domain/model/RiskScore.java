@@ -1,4 +1,4 @@
-package com.appgate.social.mentions.core;
+package com.appgate.social.mentions.domain.model;
 
 /**
  * @author <a href="mailto:daniel.bellon@payulatam.com"> Daniel Bellón </a>

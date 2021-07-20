@@ -13,7 +13,33 @@ below a brief explanation around detected issues:
 source code
 - More abstraction is needed, there are some business invariants that are not represented in domain models
 - There are no traceability, if issues or incidents over production happen, there are no logs over the incoming transactions
-that can be helpull to determine their root cause
+that can be helpful to determine their root cause
+- Strings content are not being validated, if a string is not null but it has no content, the validation will generate an unexpected value, for instance:
+  ``` java
+  if (socialMention.getFacebookAccount() != null) {
+    isFacebook = true;
+  }
+  ```
+  the previous code will generate `true` even if the `facebookAccount` (which is a String) is blank
+- Because of poor abstractions (enums are not being used to define the risk level), the risk level something is referred to the logical expression that generates it,
+in consequence, if the risk level calculation changes, the validations will fail. For instance:
+  ``` java
+  // Analyze facebook post (if facebook is already low then skip this analysis)
+  if (isFacebook && facebookScore > -100) {
+    ...
+  }
+  
+  ...
+  
+  if (isFacebook) {
+    if (facebookScore == -100d) {
+      return "HIGH_RISK";
+    }
+    ...
+  }
+  ```
+
+
 
 ## Proposed solutions
 - First, a separation of concerns is needed, that's why a layered architecture is necessary to enhance the code maintainability
@@ -23,5 +49,5 @@ that can be helpull to determine their root cause
   so that dependencies can be mocked.
 - Enhance abstraction, for instance, create enums in order to represent the risk level in Strings 
 - Add logs
-- Don't hardcode the database connection params
+- Don't hardcode the database connection params, instead, put them in a configuration file
 
